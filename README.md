@@ -2,9 +2,7 @@
 
 ## Overview
 
-This project is focused on sentiment analysis, where the goal is to classify text into two categories: positive and negative. The project uses an simple neural network model implemented with PyTorch. The repository includes the dataset, preprocessing code used to generate the dataset, the trained model files, training script and script to classify text.
-
-The reason for everything to be simple is that this is my first pytorch project
+This project is focused on sentiment analysis, where the goal is to classify text into two categories: positive and negative. The project uses an CNN model implemented with PyTorch. The repository includes the dataset, preprocessing code used to generate the dataset, the trained model files, training script and script to classify text.
 
 ## Repository Structure
 
@@ -53,7 +51,7 @@ This script will load the preprocessed data, initialize the model and train it.
 
 ### Model Architecture
 
-The model is a simple feed-forward neural network with the following architecture:
+The model is a CNN with the following architecture:
 
 ```python
 import torch
@@ -68,9 +66,10 @@ class Classifier(nn.Module):
         self.fc3 = nn.Linear(hidden_size, output_size)
 
     def forward(self, x):
-        x = F.silu(self.fc1(x)) # [batch_size, hidden_size]
-        x = F.silu(self.fc2(x)) # [hidden_size, hidden_size]
+        x = F.relu(self.fc1(x)) # [batch_size, hidden_size]
+        x = F.relu(self.fc2(x)) # [hidden_size, hidden_size]
         x = self.fc3(x) # [hidden_size, output_size]
+
         return F.log_softmax(x, dim=1)
 ```
 

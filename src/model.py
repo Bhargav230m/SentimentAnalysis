@@ -11,8 +11,8 @@ class Classifier(nn.Module):
         self.fc3 = nn.Linear(hidden_size, output_size)
 
     def forward(self, x):
-        x = F.silu(self.fc1(x)) # [batch_size, hidden_size]
-        x = F.silu(self.fc2(x)) # [hidden_size, hidden_size]
+        x = F.relu(self.fc1(x)) # [batch_size, hidden_size]
+        x = F.relu(self.fc2(x)) # [hidden_size, hidden_size]
         x = self.fc3(x) # [hidden_size, output_size]
 
         return F.log_softmax(x, dim=1)

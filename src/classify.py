@@ -12,7 +12,7 @@ def load_vocab(vocab_file):
 
 def load_model(model_file, input_size, hidden_size, output_size):
     model = Classifier(input_size, hidden_size, output_size)
-    model.load_state_dict(torch.load(model_file))
+    model.load_state_dict(torch.load(model_file, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
     model.eval()
     return model
 
