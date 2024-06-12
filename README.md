@@ -51,7 +51,7 @@ This script will load the preprocessed data, initialize the model and train it.
 
 ### Model Architecture
 
-The model is a CNN with the following architecture:
+The model is a simple Feed Forward Neural Network with the following architecture:
 
 ```python
 import torch
