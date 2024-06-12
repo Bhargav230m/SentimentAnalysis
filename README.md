@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is focused on sentiment analysis, where the goal is to classify text into two categories: positive and negative. The project uses an CNN model implemented with PyTorch. The repository includes the dataset, preprocessing code used to generate the dataset, the trained model files, training script and script to classify text.
+This project is focused on sentiment analysis, where the goal is to classify text into two categories: positive and negative. The project uses a Feed Forward Neural Network model implemented with PyTorch. The repository includes the dataset, the preprocessing code used to generate the dataset, the trained model files, the training script, and the script to classify text.
 
 ## Repository Structure
 
@@ -47,7 +47,7 @@ The model is defined in `model.py`. The `Classifier` class is a simple neural ne
 python src/train.py
 ```
 
-This script will load the preprocessed data, initialize the model and train it.
+This script will load the preprocessed data, initialize the model, and train it.
 
 ### Model Architecture
 
